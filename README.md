@@ -90,6 +90,7 @@ Contributions to help enhance installation options are greatly appreciated!
 
     ```bash
     yarn install
+    yarn sh:relink
     ```
 
 1. __Optional:__ Check that the project successfully compiled & linked
