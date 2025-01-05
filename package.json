@@ -22,13 +22,19 @@
     "man": "./docs/man/fish-lsp.1",
     "bin": "./bin/fish-lsp"
   },
+  "files": [
+    "bin/",
+    "docs/man/",
+    "out/",
+    "scripts/"
+  ],
   "scripts": {
-    "prepare": "husky",
-    "postinstall": "run-s sh:build-time compile sh:relink sh:build-completions",
-    "compile": "tsc -b",
+    "prepare": "run-s prepare:husky compile",
+    "prepare:husky": "husky",
+    "postinstall": "run-s sh:relink sh:build-completions",
+    "compile": "tsc -b && date +'%F %T' >out/build-time.txt",
     "watch": "tsc -b -w",
     "sh:build-completions": "fish ./scripts/build-completions.fish",
-    "sh:build-time": "fish ./scripts/build-time.fish",
     "sh:relink": "fish ./scripts/relink-locally.fish",
     "clean:all": "rimraf out *.tsbuildinfo node_modules tree-sitter-fish.wasm logs.txt",
     "clean": "rimraf out node_modules",
