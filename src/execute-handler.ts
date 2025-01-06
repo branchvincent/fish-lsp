@@ -123,7 +123,12 @@ export async function sourceFishBuffer(bufferName: string) {
 }
 
 export async function FishThemeDump() {
-  return (await execAsyncFish('fish_config theme dump')).stdout.split('\n');
+  try {
+    return (await execAsyncFish('fish_config theme dump')).stdout.split('\n');
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
 }
 
 export async function showCurrentTheme(buffName: string) {

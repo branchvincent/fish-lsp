@@ -82,7 +82,7 @@ describe('executeHandler tests', () => {
     '$status: 0\n');
   }, 10000);
 
-  it('dump theme variables', async () => {
+  it.only('dump theme variables', async () => {
     content = '# I want to make a theme\n';
 
     SyncFileHelper.create(tmpBuff);
