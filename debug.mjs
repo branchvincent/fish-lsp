@@ -4,7 +4,7 @@ import { promisify } from "node:util";
 const exec = promisify(execSync);
 
 try {
-  const { stdout, stderr } = await exec("fish -c 'fish_config theme demo'");
+  const { stdout, stderr } = await exec("fish -c 'fish_config theme dump'");
   console.log("stdout:", stdout);
   console.log("stderr:", stderr);
 } catch (e) {

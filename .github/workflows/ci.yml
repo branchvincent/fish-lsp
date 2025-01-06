@@ -39,9 +39,5 @@ jobs:
       - name: Run Lint
         run: yarn lint:fix
 
-      - run: |
-          env -i HOME=$HOME PATH=$PATH NODE_ENV=test node ./debug.mjs
-          env -i HOME=$HOME PATH=$PATH NODE_ENV=test fish -c 'fish_config theme demo'
-
       - name: Run tests
         run: yarn test test-data/execute-handler.test.ts
